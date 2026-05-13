@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFD OS - TinyFoxyDOS by Sadman</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --green: #3fb950;
+            --orange: #d2991d;
+            --white: #e6edf3;
+            --gray: #8b949e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container { max-width: 780px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        .header { text-align: center; padding: 50px 0 30px; border-bottom: 1px solid var(--border); }
+        .header svg { width: 120px; height: 120px; margin-bottom: 15px; }
+        .header h1 { font-size: 48px; color: var(--green); font-weight: 800; letter-spacing: 2px; }
+        .header .tagline { color: var(--gray); font-size: 14px; margin-top: 5px; }
+        .meta { margin-top: 12px; }
+        .badge {
+            display: inline-block;
+            background: var(--card);
+            color: var(--green);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 3px;
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .section h2 { color: var(--green); margin-bottom: 16px; font-size: 20px; }
+        .section h3 { color: var(--orange); margin: 12px 0 6px; }
+        .section p { color: var(--gray); margin: 8px 0; line-height: 1.8; }
+        .section a { color: var(--green); text-decoration: none; }
+        .section a:hover { text-decoration: underline; }
+
+        /* Download Box */
+        .download-box {
+            text-align: center;
+            background: linear-gradient(135deg, #0d3320, #161b22);
+            border: 2px solid var(--green);
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin: 24px 0;
+        }
+        .download-box h2 { color: var(--green); font-size: 24px; }
+        .download-btn {
+            display: inline-block;
+            background: var(--green);
+            color: #000;
+            padding: 16px 48px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 8px;
+            margin: 20px 10px;
+            transition: all 0.2s;
+        }
+        .download-btn:hover { filter: brightness(1.2); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(63,185,80,0.3); }
+        .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
+        .btn-outline:hover { background: var(--green); color: #000; }
+
+        /* Features grid */
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .feature {
+            background: var(--bg);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .feature .icon { font-size: 28px; margin-bottom: 4px; }
+        .feature h3 { font-size: 15px; color: var(--orange); margin: 4px 0; }
+
+        /* Code blocks */
+        pre {
+            background: var(--bg);
+            color: #7ee787;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        .footer strong { color: var(--green); }
+
+        @media (max-width: 600px) {
+            .features { grid-template-columns: 1fr; }
+            .header h1 { font-size: 32px; }
+            .download-btn { padding: 12px 30px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <!-- Foxy Mascot SVG -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="65" rx="22" ry="18" fill="#e07830"/>
+            <circle cx="50" cy="40" r="18" fill="#f08830"/>
+            <polygon points="35,26 38,10 45,22" fill="#f08830"/>
+            <polygon points="65,26 62,10 55,22" fill="#f08830"/>
+            <polygon points="37,24 39,14 44,24" fill="#f5c0a0"/>
+            <polygon points="63,24 61,14 56,24" fill="#f5c0a0"/>
+            <circle cx="43" cy="38" r="4" fill="white"/>
+            <circle cx="57" cy="38" r="4" fill="white"/>
+            <circle cx="44" cy="38" r="2.5" fill="#1a1a2e"/>
+            <circle cx="58" cy="38" r="2.5" fill="#1a1a2e"/>
+            <circle cx="45" cy="37" r="0.8" fill="white"/>
+            <circle cx="59" cy="37" r="0.8" fill="white"/>
+            <ellipse cx="50" cy="43" rx="3" ry="2" fill="#1a1a2e"/>
+            <path d="M47,45 Q50,49 53,45" fill="none" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M30,62 Q15,50 20,35 Q22,28 28,38 Q32,48 30,62" fill="#f08830" stroke="#e07830" stroke-width="1"/>
+            <circle cx="20" cy="35" r="4" fill="white"/>
+            <ellipse cx="38" cy="78" rx="6" ry="3" fill="#e07830"/>
+            <ellipse cx="62" cy="78" rx="6" ry="3" fill="#e07830"/>
+        </svg>
+        <h1>TFD OS</h1>
+        <p class="tagline"><strong>T</strong>iny<strong>F</strong>oxy<strong>D</strong>OS — A Text-Based Operating System</p>
+        <div class="meta">
+            <span class="badge">🦊 Foxy Mascot</span>
+            <span class="badge">v1.0 Alpha</span>
+            <span class="badge">GPL Licensed</span>
+            <span class="badge">x86 / i386</span>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD SECTION - Same folder ZIP download -->
+    <div class="download-box">
+        <h2>⬇️ Download TFD OS</h2>
+        <p style="color:var(--gray); margin:10px 0;">Get the full OS package with source code</p>
+        
+        <!-- THIS DOWNLOADS TFD-OS.zip FROM THE SAME FOLDER -->
+        <a href="TFD-OS.zip" download class="download-btn">📥 Download TFD-OS.zip</a>
+        <a href="https://github.com/CUSTARGAMES/myos" class="download-btn btn-outline">💻 GitHub Repo</a>
+        
+        <p style="color:var(--gray); font-size:13px; margin-top:15px;">
+            📦 Download includes: ISO + Source Code (kernel.c, boot.s, linker.ld, grub.cfg, build.yml)
+        </p>
+        <p style="color:var(--gray); font-size:13px;">
+            🔗 Source: <a href="https://github.com/CUSTARGAMES/myos.git">https://github.com/CUSTARGAMES/myos.git</a>
+        </p>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section">
+        <h2>📖 What is TFD OS?</h2>
+        <p>TFD OS (TinyFoxyDOS) is a <strong>text-based operating system</strong> built from scratch by <strong>Sadman</strong> in 2026. It runs on real hardware using VGA text mode — no GPU needed.</p>
+        <p>This is a hobby project for learning low-level programming. It includes a command shell, text editor, and 3 classic games. Download the source code and build your own OS!</p>
+        <p style="color:var(--orange);"><em>"Small OS, Big Dreams" — Sadman, 2026</em></p>
+    </div>
+
+    <!-- CREATOR NOTE -->
+    <div class="section">
+        <h2>✉️ From the Creator</h2>
+        <p>Hello guys! 👋 I'm <strong>Sadman</strong>, a beginner system-level developer. I made this text-based OS as a hobby project. It has bugs (Notepad ESC doesn't work, shutdown just hangs), but that's how we learn!</p>
+        <p>Download the source code from GitHub, modify it, and make your own OS. If I can do it, you can too!</p>
+        <p style="color:var(--green);"><strong>— Sadman, 2026</strong></p>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section">
+        <h2>✨ Features</h2>
+        <div class="features">
+            <div class="feature"><div class="icon">💻</div><h3>Command Shell</h3><p>Custom prompt with username & PC name</p></div>
+            <div class="feature"><div class="icon">📝</div><h3>FXC NOTEPAD</h3><p>Built-in text editor</p></div>
+            <div class="feature"><div class="icon">🐍</div><h3>Snake Game</h3><p>>>> eats . to grow</p></div>
+            <div class="feature"><div class="icon">🧱</div><h3>Tetris</h3><p>|||| blocks, rotate with W</p></div>
+            <div class="feature"><div class="icon">🏓</div><h3>Pong</h3><p>Two-player | o |</p></div>
+            <div class="feature"><div class="icon">👤</div><h3>Setup Wizard</h3><p>Choose username & PC name</p></div>
+        </div>
+    </div>
+
+    <!-- INSTALL GUIDE -->
+    <div class="section">
+        <h2>📀 Quick Install</h2>
+        <pre># 1. Download TFD-OS.zip from above
+# 2. Extract the ZIP
+# 3. Write os.iso to USB with Rufus (DD mode)
+# 4. Boot from USB (Legacy/CSM mode)
+# 5. Press ENTER at TFD logo
+# 6. Type FXC GAMES to play!
+
+# Or test in QEMU:
+qemu-system-i386 -cdrom os.iso -m 32</pre>
+    </div>
+
+    <!-- KNOWN BUGS -->
+    <div class="section">
+        <h2>🐛 Known Issues (Alpha)</h2>
+        <ul style="color:var(--gray); padding-left:20px;">
+            <li>Notepad: ESC key to exit not yet implemented</li>
+            <li>Shutdown: Countdown completes but doesn't power off</li>
+            <li>No mouse support — keyboard only</li>
+            <li>No file system — cannot save files</li>
+        </ul>
+        <p style="color:var(--orange); margin-top:12px;">Contributions welcome! Fix these and submit a PR on GitHub.</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>🦊 <strong>TFD OS v1.0 Alpha</strong> | Created by Sadman | 2026</p>
+    <p>Open Source (GPL) | <a href="https://github.com/CUSTARGAMES/myos">GitHub</a></p>
+</div>
+
+</body>
+</html>
+</html>
